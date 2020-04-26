@@ -1,0 +1,32 @@
+{
+  "extends": "airbnb-base",
+  "parser": "babel-eslint",
+  "plugins": ["chai-expect"],
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  },
+  "rules": {
+    "max-len": ["error", { "code": 120 }],
+    "object-curly-newline": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.test.js",
+        "*.spec.js",
+        "*.test.jsx",
+        "*.spec.jsx"
+      ],
+      "globals": {
+        "expect": "readonly",
+        "should": "readonly",
+        "sinon": "readonly"
+      },
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}

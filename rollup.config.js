@@ -1,6 +1,9 @@
-import multi from '@rollup/plugin-multi-entry';
+import glob from 'glob';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
+import { version } from './package.json';
+
+const banner = `/* Deep Waters v${version} */`;
 
 const config = [
   // browser-friendly UMD build
@@ -12,12 +15,30 @@ const config = [
       format: 'umd',
       sourcemap: true,
       compact: true,
+      banner,
     },
     plugins: [
-      commonjs(), // so Rollup can convert `ms` to an ES module
-      babel({
-        exclude: ['node_modules/**'],
-      }),
+      commonjs(),
+      babel(),
+    ],
+  },
+  // AMD
+  {
+    input: 'src/index.js',
+    output: {
+      name: 'deep-waters',
+      file: 'dist/deep-waters.amd.js',
+      sourcemap: true,
+      compact: true,
+      format: 'amd',
+      amd: {
+        id: 'deep-waters',
+      },
+      banner,
+    },
+    plugins: [
+      commonjs(),
+      babel(),
     ],
   },
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -27,16 +48,10 @@ const config = [
   // an array for the `output` option, where we can specify
   // `file` and `format` for each target)
   {
-    input: 'src/**/*.js',
+    input: glob.sync('src/**/*.js'),
     preserveModules: true,
-    output: [
-      { name: 'deep-waters', dir: 'dist/cjs', format: 'cjs' },
-      { name: 'deep-waters', dir: 'dist/esm', format: 'esm' },
-    ],
-    plugins: [
-      babel({ exclude: ['node_modules/**'] }),
-      multi(),
-    ],
+    output: { name: 'deep-waters', dir: 'dist', format: 'cjs', exports: 'named', banner },
+    plugins: [babel()],
   },
 ];
 

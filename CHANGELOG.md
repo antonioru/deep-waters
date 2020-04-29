@@ -19,3 +19,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Stylelint
 - Tests
 - Build System
+
+## [0.1.1] - 2020-04-29
+
+### Fixed
+
+- Rollup configuration to export amd, umd and esm modules
+
+## [0.1.2] - 2020-04-29
+
+### Fixed
+
+- Wrong index.js export
+
+## [0.1.3] - 2020-04-29
+
+### Fixed
+
+- Exporting only CJS modules

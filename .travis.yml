@@ -10,13 +10,9 @@ script:
   - npm run lint
   - npm run test
   - npm run build
-  - echo 'BUILD SUCCESS'
-  - ls
 
 before_deploy:
   - npx copy CHANGELOG.md package.json README.md LICENSE ./dist
-  - cd ./dist
-  - ls
 
 deploy:
   - provider: npm

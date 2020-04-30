@@ -1,8 +1,8 @@
 {
   "name": "deep-waters",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A lightweight functional javascript validation system",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "npm run test -- --watch",
     "lint": "eslint --ext .js ./",
@@ -18,10 +18,6 @@
     "> 0.25%",
     "not dead"
   ],
-  "files": [
-    "dist/**"
-  ],
-  "types": "index.d.ts",
   "keywords": [
     "validation",
     "javascript",

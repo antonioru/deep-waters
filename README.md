@@ -42,24 +42,4 @@ by using `yarn`:
 $ yarn add deep-waters
 ```
 
-## Available validators
-
-* Multi-purpose
-    * isEmpty
-    * isRequired,
-
-* Numbers
-    * isNumber
-    * biggerThan,
-    * lessThan,
-    * isDivisibleBy
-    * isZero
-    
-* Strings
-    * contains
-    * isEmptyString
-    * isIP
-    * isIPv4
-    * isIPv6
-
 Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)

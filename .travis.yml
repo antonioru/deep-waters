@@ -13,6 +13,7 @@ script:
 
 before_deploy:
   - npx copy CHANGELOG.md package.json README.md LICENSE ./dist
+  - cd dist
 
 deploy:
   - provider: npm

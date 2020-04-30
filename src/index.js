@@ -20,6 +20,8 @@ export { default as isNull } from './isNull';
 export { default as isNumber } from './isNumber';
 export { default as isObject } from './isObject';
 export { default as isPhoneInternational } from './isPhoneInternational';
+export { default as isPhoneUK } from './isPhoneUK';
+export { default as isPhoneUSA } from './isPhoneUSA';
 export { default as isRequired } from './isRequired';
 export { default as isString } from './isString';
 export { default as isTrue } from './isTrue';

@@ -11,9 +11,14 @@ script:
   - npm run test
   - npm run build
 
+before_deploy:
+  - npx copy CHANGELOG.md package.json README.md LICENSE ./dist
+  - cd dist
+
 deploy:
   - provider: npm
     edge: true
+    skip_cleanup: true
     email: $NPM_EMAIL
     api_key: $NPM_TOKEN
     on:

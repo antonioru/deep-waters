@@ -1,7 +1,7 @@
 import hasShape from '../src/hasShape';
 import compose from '../src/compose';
-import isString from '../src/strings/isString';
-import isNumber from '../src/numbers/isNumber';
+import isString from '../src/isString';
+import isNumber from '../src/isNumber';
 import isBoolean from '../src/isBoolean';
 
 describe('hasShape', () => {

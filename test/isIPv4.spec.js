@@ -1,4 +1,4 @@
-import isIPv4 from '../src/strings/isIPv4';
+import isIPv4 from '../src/isIPv4';
 
 describe('isIPv4', () => {
   it('should be a function', () => {

@@ -1,4 +1,4 @@
-import lessThan from '../src/numbers/lessThan';
+import lessThan from '../src/lessThan';
 
 describe('lessThan', () => {
   it('should be a function', () => {

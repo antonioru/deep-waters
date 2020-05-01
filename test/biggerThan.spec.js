@@ -1,4 +1,4 @@
-import biggerThan from '../src/numbers/biggerThan';
+import biggerThan from '../src/biggerThan';
 
 describe('biggerThan', () => {
   it('should be a function', () => {

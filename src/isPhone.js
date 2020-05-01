@@ -1,5 +1,5 @@
-import compose from '../compose';
-import or from '../or';
+import compose from './compose';
+import or from './or';
 import isString from './isString';
 import matchesPattern from './matchesPattern';
 

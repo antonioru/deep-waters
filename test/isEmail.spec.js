@@ -1,4 +1,4 @@
-import isEmail from '../src/strings/isEmail';
+import isEmail from '../src/isEmail';
 
 describe('isEmail', () => {
   it('should be a function', () => {

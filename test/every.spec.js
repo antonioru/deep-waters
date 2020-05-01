@@ -1,5 +1,5 @@
 import every from '../src/every';
-import isNumber from '../src/numbers/isNumber';
+import isNumber from '../src/isNumber';
 
 describe('every', () => {
   it('should be a function', () => {

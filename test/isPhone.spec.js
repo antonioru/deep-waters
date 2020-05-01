@@ -1,4 +1,4 @@
-import isPhone from '../src/strings/isPhone';
+import isPhone from '../src/isPhone';
 
 describe('isPhone', () => {
   it('should be a function', () => {

@@ -1,5 +1,5 @@
 import compose from './compose';
-import isNumber from './numbers/isNumber';
+import isNumber from './isNumber';
 
 const isDivisibleBy = (number) => compose(
   isNumber,

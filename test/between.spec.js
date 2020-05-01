@@ -1,4 +1,4 @@
-import between from '../src/numbers/between';
+import between from '../src/between';
 
 describe('between', () => {
   it('should be a function', () => {

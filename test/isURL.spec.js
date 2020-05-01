@@ -1,4 +1,4 @@
-import isURL from '../src/strings/isURL';
+import isURL from '../src/isURL';
 
 describe('isURL', () => {
   it('should be a function', () => {

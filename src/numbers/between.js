@@ -1,4 +1,4 @@
-import compose from './compose';
+import compose from '../compose';
 import biggerThan from './biggerThan';
 import lessThan from './lessThan';
 

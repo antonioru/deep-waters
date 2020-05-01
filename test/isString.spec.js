@@ -1,4 +1,4 @@
-import isString from '../src/isString';
+import isString from '../src/strings/isString';
 
 describe('isString', () => {
   it('should be a function', () => {

@@ -1,4 +1,4 @@
-import isIP from '../src/isIP';
+import isIP from '../src/strings/isIP';
 
 describe('isIP', () => {
   it('should be a function', () => {

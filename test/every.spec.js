@@ -1,5 +1,5 @@
 import every from '../src/every';
-import isNumber from '../src/isNumber';
+import isNumber from '../src/numbers/isNumber';
 
 describe('every', () => {
   it('should be a function', () => {
@@ -27,5 +27,11 @@ describe('every', () => {
     expect(everyItemIsNumber(null)).to.be.false;
     expect(everyItemIsNumber(undefined)).to.be.false;
     expect(everyItemIsNumber({})).to.be.false;
+  });
+
+  it('should return false when an invalid validator is passed', () => {
+    const what = every(null);
+
+    expect(what('lorem ipsum')).to.be.false;
   });
 });

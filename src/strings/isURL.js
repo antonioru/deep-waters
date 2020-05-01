@@ -1,5 +1,5 @@
-import compose from './compose';
-import not from './not';
+import compose from '../compose';
+import not from '../not';
 import matchesPattern from './matchesPattern';
 import isEmptyString from './isEmptyString';
 

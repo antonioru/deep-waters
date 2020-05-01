@@ -1,4 +1,4 @@
-import isNumber from '../src/isNumber';
+import isNumber from '../src/numbers/isNumber';
 
 describe('isNumber', () => {
   it('should be a function', () => {

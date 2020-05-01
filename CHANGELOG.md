@@ -58,9 +58,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixing the empty dist directory issue (second attempt)
 
-
 ## [0.2.3] - 2020-04-30
 
 ### Fixed
 
 - Fixing the empty dist directory issue (for real this time)
+
+## [0.3.0] - 2020-01-01
+
+### Added
+
+- isPhone validator

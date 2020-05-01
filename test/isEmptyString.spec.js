@@ -1,4 +1,4 @@
-import isEmptyString from '../src/isEmptyString';
+import isEmptyString from '../src/strings/isEmptyString';
 
 describe('isEmptyString', () => {
   it('should be a function', () => {

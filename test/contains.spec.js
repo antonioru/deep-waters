@@ -1,4 +1,4 @@
-import contains from '../src/contains';
+import contains from '../src/strings/contains';
 
 describe('contains', () => {
   it('should be a function', () => {

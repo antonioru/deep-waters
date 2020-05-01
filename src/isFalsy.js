@@ -1,9 +1,9 @@
 import or from './or';
 import isFalse from './isFalse';
-import isZero from './isZero';
+import isZero from './numbers/isZero';
 import isNull from './isNull';
 import isUndefined from './isUndefined';
-import isEmptyString from './isEmptyString';
+import isEmptyString from './strings/isEmptyString';
 
 /**
  * Returns true if the given value is falsy (false, zero, empty string, null, undefined or NaN)

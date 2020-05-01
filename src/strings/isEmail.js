@@ -1,4 +1,4 @@
-import compose from './compose';
+import compose from '../compose';
 import isString from './isString';
 import matchesPattern from './matchesPattern';
 

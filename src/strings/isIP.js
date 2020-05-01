@@ -1,4 +1,4 @@
-import or from './or';
+import or from '../or';
 import isIPv4 from './isIPv4';
 import isIPv6 from './isIPv6';
 

@@ -1,9 +1,9 @@
 import compose from './compose';
 import when from './when';
-import isString from './isString';
+import isString from './strings/isString';
 import ofLength from './ofLength';
 import isObject from './isObject';
-import isEmptyString from './isEmptyString';
+import isEmptyString from './strings/isEmptyString';
 
 /**
  * Returns true if the given value is empty (can be a string, an array or an object)

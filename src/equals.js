@@ -8,11 +8,10 @@ import isFunction from './isFunction';
 import isObject from './isObject';
 import isRegExp from './isRegExp';
 import isDate from './isDate';
+import every from './every';
 
 
 const objectEquals = (object) => (value) => {
-  if (!isObject(object)) return false;
-
   const objKeys = Object.keys(object);
   const valueKeys = Object.keys(value);
 
@@ -24,13 +23,13 @@ const objectEquals = (object) => (value) => {
 
 
 // eslint-disable-next-line no-use-before-define
-const arrayEquals = (array) => (value) => value.every((item, index) => equals(item)(array[index]));
+const arrayEquals = (array) => every((item, index) => equals(item)(array[index]));
 
 const equals = (value) => compose(
   when(or(isString, isBoolean, isNumber, isFunction, isRegExp), (string) => value === string),
   when(isDate, () => !!value.valueOf(), (date) => date.valueOf() === value.valueOf()),
-  when(isObject, objectEquals(value)),
   when(Array.isArray, arrayEquals(value)),
+  when(isObject, objectEquals(value)),
 );
 
 export default equals;

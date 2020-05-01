@@ -27,5 +27,8 @@ describe('oneOfValues', () => {
     expect(isRole('ciao')).to.be.false;
     expect(isRole(null)).to.be.false;
     expect(isRole(undefined)).to.be.false;
+
+
+    expect(oneOfValues(undefined)(null)).to.be.false;
   });
 });

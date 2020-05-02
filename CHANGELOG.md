@@ -76,7 +76,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - equals and arrayOf 
 
-## [0.5.0] - 2020-01-01
+## [0.5.0] - 2020-01-02
 
 ### Added
 
@@ -85,3 +85,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - equals
+
+
+## [0.5.1] - 2020-01-02
+
+### Fixed
+
+- equals tests and removed useless validators

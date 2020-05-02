@@ -1,6 +1,6 @@
 {
   "name": "deep-waters",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A lightweight functional javascript validation system",
   "main": "index.js",
   "scripts": {

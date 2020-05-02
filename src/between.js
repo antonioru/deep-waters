@@ -1,10 +1,10 @@
 import compose from './compose';
 import biggerThan from './biggerThan';
-import lessThan from './lessThan';
+import smallerThan from './smallerThan';
 
 const between = (min) => (max) => compose(
   biggerThan(min),
-  lessThan(max),
+  smallerThan(max),
 );
 
 export default between;

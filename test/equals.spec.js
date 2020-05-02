@@ -17,6 +17,9 @@ describe('equals', () => {
 
     expect(isHello('hello')).to.be.true;
     expect(isHello('lorem')).to.be.false;
+    expect(isHello(undefined)).to.be.false;
+    expect(isHello(10)).to.be.false;
+    expect(isHello(null)).to.be.false;
 
     const is10 = equals(10);
 
@@ -81,10 +84,16 @@ describe('equals', () => {
       arr: [1, 2, 3, 4, 5, 6, { prop: 1 }],
     });
 
+    expect(isObj({})).to.be.false;
     expect(isObj(undefined)).to.be.false;
     expect(isObj(null)).to.be.false;
     expect(isObj(false)).to.be.false;
     expect(isObj('Hello')).to.be.false;
     expect(isObj(10)).to.be.false;
+
+    const isFn = equals(() => null);
+
+    expect(isFn({ prop: 1 })).to.be.false;
+    expect(isFn(() => 10)).to.be.false;
   });
 });

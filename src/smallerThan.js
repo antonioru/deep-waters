@@ -1,9 +1,9 @@
 import compose from './compose';
 import isNumber from './isNumber';
 
-const lessThan = (number) => compose(
+const smallerThan = (number) => compose(
   isNumber,
   (value) => value < number,
 );
 
-export default lessThan;
+export default smallerThan;

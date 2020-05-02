@@ -62,4 +62,29 @@ describe('equals', () => {
 
     expect(isArr([1, 2, 3, 4, 'hello', { prop: 1 }])).to.be.true;
   });
+
+
+  it('should return false for non equal values', () => {
+    const isArr = equals([1, 2, 3, 4, 'hello', { prop: 1 }]);
+
+    expect(isArr(undefined)).to.be.false;
+    expect(isArr(null)).to.be.false;
+    expect(isArr(false)).to.be.false;
+    expect(isArr('Hello')).to.be.false;
+    expect(isArr(10)).to.be.false;
+
+    const isObj = equals({
+      prop: 1,
+      prop2: 2,
+      propStr: 'hello',
+      prop3: { nested: { object: true, omg: { deep: { prop: 1, prop2: 2 } } } },
+      arr: [1, 2, 3, 4, 5, 6, { prop: 1 }],
+    });
+
+    expect(isObj(undefined)).to.be.false;
+    expect(isObj(null)).to.be.false;
+    expect(isObj(false)).to.be.false;
+    expect(isObj('Hello')).to.be.false;
+    expect(isObj(10)).to.be.false;
+  });
 });

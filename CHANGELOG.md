@@ -75,3 +75,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - equals and arrayOf 
+
+## [0.5.0] - 2020-01-01
+
+### Added
+
+- maximum, minimum and ofUniqueItems validators
+
+### Fixed
+
+- equals

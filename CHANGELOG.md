@@ -99,10 +99,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - isNumeric and isDateFormat
 
-
 ## [0.7.0] - 2020-05-03
 
 ### Added
 
 - `isNumeric` and `isDateFormat` tests
 - `contains` improved
+
+## [0.7.1] - 2020-05-03
+
+### Changed
+
+- README.md files
+- arrayOf renamed to arrayOfShape

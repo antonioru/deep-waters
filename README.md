@@ -14,6 +14,7 @@
   <h3 align="center">
     an easy-to-compose modular validation system for javascript developers
   </h3>
+  <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank">📖 Documentation</a>
 </div>
 
 ![Usage example](./usage_example.png)

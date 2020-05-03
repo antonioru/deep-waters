@@ -1,4 +1,4 @@
-import arrayOf from '../src/arrayOf';
+import arrayOfShape from '../src/arrayOfShape';
 import compose from '../src/compose';
 import isString from '../src/isString';
 import isNumber from '../src/isNumber';
@@ -7,11 +7,11 @@ import hasShape from '../src/hasShape';
 
 describe('arrayOf', () => {
   it('should be a function', () => {
-    expect(arrayOf).to.be.a('function');
+    expect(arrayOfShape).to.be.a('function');
   });
 
   it('should return a new function', () => {
-    const isUserCollection = arrayOf({
+    const isUserCollection = arrayOfShape({
       name: isString,
       age: compose(isNumber, (age) => age >= 18),
     });
@@ -20,7 +20,7 @@ describe('arrayOf', () => {
   });
 
   it('should return true if the provided array items have the defined shape', () => {
-    const isUserCollection = arrayOf({
+    const isUserCollection = arrayOfShape({
       name: isString,
       age: compose(isNumber, (age) => age >= 18),
       meta: hasShape({
@@ -36,7 +36,7 @@ describe('arrayOf', () => {
   });
 
   it('should return false for any other value', () => {
-    const isUserCollection = arrayOf({
+    const isUserCollection = arrayOfShape({
       name: isString,
       age: compose(isNumber, (age) => age >= 18),
       meta: hasShape({

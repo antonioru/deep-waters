@@ -1,4 +1,4 @@
-export { default as arrayOf } from './arrayOf';
+export { default as arrayOfShape } from './arrayOfShape';
 export { default as between } from './between';
 export { default as biggerThan } from './biggerThan';
 export { default as compose } from './compose';

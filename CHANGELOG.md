@@ -86,9 +86,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - equals
 
-
 ## [0.5.1] - 2020-01-02
 
 ### Fixed
 
 - equals tests and removed useless validators
+
+
+## [0.6.0] - 2020-01-03
+
+### Added
+
+- isNumeric and isDateFormat

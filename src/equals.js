@@ -1,16 +1,10 @@
 import compose from './compose';
 import when from './when';
 import or from './or';
-import isString from './isString';
-import isBoolean from './isBoolean';
-import isNumber from './isNumber';
-import isFunction from './isFunction';
 import isObject from './isObject';
-import isUndefined from './isUndefined';
-import isNull from './isNull';
-import isRegExp from './isRegExp';
 import isDate from './isDate';
 import every from './every';
+import isPrimitive from './isPrimitive';
 
 
 const objectEquals = (object) => (value) => {
@@ -30,7 +24,7 @@ const objectEquals = (object) => (value) => {
 const arrayEquals = (array) => every((item, index) => equals(item)(array[index]));
 
 const equals = (value) => compose(
-  when(or(isString, isBoolean, isNumber, isFunction, isRegExp, isNull, isUndefined), (string) => value === string),
+  when(or(isPrimitive), (string) => value === string),
   when(isDate, () => !!value.valueOf(), (date) => date.valueOf() === value.valueOf()),
   when(Array.isArray, arrayEquals(value)),
   when(isObject, objectEquals(value)),

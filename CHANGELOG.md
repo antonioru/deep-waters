@@ -64,19 +64,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixing the empty dist directory issue (for real this time)
 
-## [0.3.0] - 2020-01-01
+## [0.3.0] - 2020-05-01
 
 ### Added
 
 - isPhone validator
 
-## [0.4.0] - 2020-01-01
+## [0.4.0] - 2020-05-01
 
 ### Added
 
 - equals and arrayOf 
 
-## [0.5.0] - 2020-01-02
+## [0.5.0] - 2020-05-02
 
 ### Added
 
@@ -86,15 +86,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - equals
 
-## [0.5.1] - 2020-01-02
+## [0.5.1] - 2020-05-02
 
 ### Fixed
 
 - equals tests and removed useless validators
 
 
-## [0.6.0] - 2020-01-03
+## [0.6.0] - 2020-05-03
 
 ### Added
 
 - isNumeric and isDateFormat
+
+
+## [0.7.0] - 2020-05-03
+
+### Added
+
+- `isNumeric` and `isDateFormat` tests
+- `contains` improved

@@ -140,3 +140,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Minor improvements on tests
 - Better documentation
+
+## [0.9.0] - 2020-05-04
+
+### Added
+
+- `isCreditCard` validator and related validators (folder /credit-cards)

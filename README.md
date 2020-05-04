@@ -12,11 +12,14 @@
 </div>
 <div>
   <h3 align="center">
-    an easy-to-compose modular validation system for javascript developers
+    An easy-to-compose functional validation system for javascript developers
+    <br />
+    <h6>
+        <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank" align="center">
+            📖 Documentation
+        </a>
+    </h6>
   </h3>
-  <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank" align="center">
-    📖 Documentation
-  </a>
 </div>
 
 ![Usage example](./usage_example.png)
@@ -24,10 +27,12 @@
 ## 💡 What is Deep Waters?
 
 
-An easy-to-compose modular validation system for javascript developers. 
+An easy-to-compose functional validation system for javascript developers
 
 It allows to easily create custom and reusable validators from the pre-existing ones by using a functional approach 
 and the composition principle. 
+
+[📖 Documentation](https://antonioru.gitbook.io/deep-waters/)
 
 ## ☕️ Features
 
@@ -37,12 +42,6 @@ and the composition principle.
 * Extremely modular
 * Concise API
 
-
-<div>
-  <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank" align="center">
-    📖 Documentation
-  </a>
-</div>
 
 ## Installation
 
@@ -75,11 +74,9 @@ const arrayValidator = DW.compose(DW.minLength(3), DW.ofUniqueItems);
 arrayValidator([1,2,3,4]); // => true;
 ```
 
-<div>
-  <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank" align="center">
-    📖 Documentation
-  </a>
-</div>
+[📖 Documentation](https://antonioru.gitbook.io/deep-waters/)
+
+
 
 ## Licence
 

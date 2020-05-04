@@ -1,7 +1,6 @@
 /**
- * Takes a series of validator functions and return a new functions that evaluate whether the given value
- * is a valid value for all the previous validators.
- * It also removes duplicated validators
+ * It's the very backbone of Deep Waters, it takes a series of validators and returns a new function that takes a
+ * value and evaluates whether that value is valid for all the previously provided validators.
  * @param validators
  * @returns {function(*=): boolean}
  */

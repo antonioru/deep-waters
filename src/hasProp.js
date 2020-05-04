@@ -2,7 +2,8 @@ import compose from './compose';
 import isTruthy from './isTruthy';
 
 /**
- * Takes a prop and returns a new function evaluating that the received object has the defined prop.
+ * Takes a string defining a property name and returns a new function evaluation whether the received object exists and
+ * has the defined property.
  * @param prop
  * @returns {function(*=): boolean}
  */

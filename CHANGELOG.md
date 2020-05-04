@@ -128,7 +128,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `isWeakMap` validator
 - `isWeakSet` validator
 
-###
+### Fixed
 
 - README.md files
 - rewrote all the type checking validator based on `ofClass`;
+
+
+## [0.8.1] - 2020-05-04
+
+### Fixed
+
+- Minor improvements on tests
+- Better documentation

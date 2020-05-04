@@ -7,7 +7,7 @@ import isFunction from './isFunction';
  * @returns {function(*): *}
  */
 const every = (validator) => compose(
-  (value) => (isFunction(validator) ? value : false),
+  () => isFunction(validator),
   Array.isArray,
   (items) => items.every(validator),
 );

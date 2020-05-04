@@ -23,6 +23,12 @@ const objectEquals = (object) => (value) => {
 // eslint-disable-next-line no-use-before-define
 const arrayEquals = (array) => every((item, index) => equals(item)(array[index]));
 
+/**
+ * Takes a value val, of any type, and returns a new function evaluating that the received value equals val
+ * (the one previously defined).
+ * @param value
+ * @returns {function(*=): boolean}
+ */
 const equals = (value) => compose(
   when(or(isPrimitive), (string) => value === string),
   when(isDate, () => !!value.valueOf(), (date) => date.valueOf() === value.valueOf()),

@@ -1,7 +1,7 @@
 {
   "name": "deep-waters",
-  "version": "0.8.0",
-  "description": "A lightweight functional javascript validation system",
+  "version": "0.8.1",
+  "description": "An easy-to-compose functional validation system for javascript developers",
   "main": "index.js",
   "scripts": {
     "start": "npm run test -- --watch",

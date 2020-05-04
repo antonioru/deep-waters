@@ -14,7 +14,9 @@
   <h3 align="center">
     an easy-to-compose modular validation system for javascript developers
   </h3>
-  <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank">📖 Documentation</a>
+  <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank" align="center">
+    📖 Documentation
+  </a>
 </div>
 
 ![Usage example](./usage_example.png)
@@ -30,10 +32,17 @@ and the composition principle.
 ## ☕️ Features
 
 * Full functional
-* Small and lightweight
+* Strict types validation based on `Object.prototype.toString` instead of `typeof` to avoid unexpected behaviours
+* Tiny and lightweight
+* Extremely modular
 * Concise API
-* Modular
 
+
+<div>
+  <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank" align="center">
+    📖 Documentation
+  </a>
+</div>
 
 ## Installation
 
@@ -65,6 +74,12 @@ const arrayValidator = DW.compose(DW.minLength(3), DW.ofUniqueItems);
 
 arrayValidator([1,2,3,4]); // => true;
 ```
+
+<div>
+  <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank" align="center">
+    📖 Documentation
+  </a>
+</div>
 
 ## Licence
 

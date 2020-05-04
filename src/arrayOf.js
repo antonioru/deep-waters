@@ -1,0 +1,11 @@
+import every from './every';
+
+/**
+ * Takes an object of validators defining the possible shape of an object and returns a new function that reports
+ * whether the received array matches that shape for every of its elements.
+ * @param shape
+ * @returns {function(*): *}
+ */
+const arrayOf = every;
+
+export default arrayOf;

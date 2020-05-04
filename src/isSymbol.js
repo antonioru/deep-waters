@@ -1,8 +1,10 @@
+import ofClass from './ofClass';
+
 /**
  * Evaluates whether the given value is of type symbol
  * @param value
  * @returns {boolean}
  */
-const isBigInt = (value) => typeof value === 'symbol';
+const isSymbol = ofClass('Symbol');
 
-export default isBigInt;
+export default isSymbol;

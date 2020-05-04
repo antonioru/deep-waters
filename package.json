@@ -1,13 +1,13 @@
 {
   "name": "deep-waters",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "A lightweight functional javascript validation system",
   "main": "index.js",
   "scripts": {
     "start": "npm run test -- --watch",
     "lint": "eslint --ext .js ./",
     "build": "npx del-cli ./dist && rollup -c",
-    "test": "npm run build && nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\""
+    "test": "nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\""
   },
   "repository": {
     "type": "git",

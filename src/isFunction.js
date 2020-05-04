@@ -1,3 +1,5 @@
+import ofClass from './ofClass';
+
 /**
  * Returns true if the given value is of type function
  *
@@ -5,6 +7,6 @@
  * @param fn
  * @returns {boolean|boolean}
  */
-const isFunction = (fn) => !!fn && {}.toString.call(fn) === '[object Function]';
+const isFunction = ofClass('Function');
 
 export default isFunction;

@@ -112,3 +112,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - README.md files
 - arrayOf renamed to arrayOfShape
+
+## [0.8.0] - 2020-05-04
+
+### Added
+
+- `ofClass` validator
+- `arrayOf` validator
+- `isBuffer` validator
+- `isError` validator
+- `isInt8Array` validator
+- `isMap` validator
+- `isSet` validator
+- `isUInt8Array` validator
+- `isWeakMap` validator
+- `isWeakSet` validator
+
+###
+
+- README.md files
+- rewrote all the type checking validator based on `ofClass`;

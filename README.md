@@ -14,11 +14,11 @@
   <h3 align="center">
     An easy-to-compose functional validation system for javascript developers
     <br />
-    <h6>
-        <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank" align="center">
+    <h4 align="center">
+        <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank">
             📖 Documentation
         </a>
-    </h6>
+    </h4>
   </h3>
 </div>
 
@@ -32,7 +32,13 @@ An easy-to-compose functional validation system for javascript developers
 It allows to easily create custom and reusable validators from the pre-existing ones by using a functional approach 
 and the composition principle. 
 
-[📖 Documentation](https://antonioru.gitbook.io/deep-waters/)
+
+<h4 align="center">
+    <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank">
+        📖 Documentation
+    </a>
+</h4>
+
 
 ## ☕️ Features
 
@@ -43,7 +49,8 @@ and the composition principle.
 * Concise API
 
 
-## Installation
+
+## 🕺 Installation
 
 You can install it by using NPM:
 
@@ -74,15 +81,30 @@ const arrayValidator = DW.compose(DW.minLength(3), DW.ofUniqueItems);
 arrayValidator([1,2,3,4]); // => true;
 ```
 
-[📖 Documentation](https://antonioru.gitbook.io/deep-waters/)
+<h4 align="center">
+    <a href="https://antonioru.gitbook.io/deep-waters/" target="_blank">
+        📖 Documentation
+    </a>
+</h4>
 
 
-
-## Licence
+## 🔰 Licence
 
 Deep Waters is released under the [MIT license](./LICENSE.md) & supports modern environments.
 
 
+## 🧑‍🤝‍🧑 Contributing
+
+Contributions are very welcome and wanted. 
+
+To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONTRIBUTING.md) guidelines.
+
+**Before submitting** a new merge request, please make sure:
+
+1. You have updated the package.json version and reported your changes into the [CHANGELOG](./CHANGELOG.md) file
+2. make sure you run `npm test` before submitting your merge request.
+3. In case you're creating a new validator please make sure it is well documented and tested
+
 ---
 
-Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)
+Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.freepik.com](http://www.freepik.com)

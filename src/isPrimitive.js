@@ -8,6 +8,10 @@ import isSymbol from './isSymbol';
 import isUndefined from './isUndefined';
 import isNull from './isNull';
 
+/**
+ * Receives a value and reports whether it is a primitive of not
+ * @type {function(*=): boolean}
+ */
 const isPrimitive = or(isString, isFunction, isBoolean, isNumber, isBigInt, isSymbol, isNull, isUndefined);
 
 export default isPrimitive;

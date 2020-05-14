@@ -9,7 +9,6 @@ const assertState = (state) => {
   }
 };
 
-
 const lift = (state, { valid, errors = [] }) => Immutable({
   valid: valid && state.valid,
   errors: [...errors, ...(state.errors || [])],

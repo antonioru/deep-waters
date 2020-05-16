@@ -1,10 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
 /**
  * Evaluates whether the given value is of type string
  * @param value
  * @returns {boolean}
  */
-const isString = ofClass('String');
+const isString = ofType('String');
 
 export default isString;

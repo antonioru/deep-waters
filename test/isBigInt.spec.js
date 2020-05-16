@@ -1,18 +1,13 @@
 import isBigInt from '../src/isBigInt';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
+
+const { BigInt } = global;
 
 describe('isBigInt', () => {
-  it('should be a function', () => {
-    expect(isBigInt).to.be.a('function');
-  });
+  shouldBeAValidator(isBigInt, BigInt(100));
 
-  it('should evaluate if the given value is of type BigInt', () => {
-    // eslint-disable-next-line no-undef
-    expect(isBigInt(BigInt(Number.MAX_SAFE_INTEGER))).to.be.true;
-
-    expect(isBigInt(null)).to.be.false;
-    expect(isBigInt(undefined)).to.be.false;
-    expect(isBigInt(0)).to.be.false;
-    expect(isBigInt(1)).to.be.false;
-    expect(isBigInt('value')).to.be.false;
-  });
+  shouldBeValidFor(isBigInt, [BigInt(0), BigInt(1), BigInt(Number.MIN_SAFE_INTEGER), BigInt(Number.MAX_SAFE_INTEGER)]);
+  shouldBeInvalidFor(isBigInt, [1, 0, '', 'foo', undefined, null, new Set(), new Map()]);
 });

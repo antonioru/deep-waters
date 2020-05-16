@@ -1,5 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
-const isMap = ofClass('Map');
+/**
+ * Evaluates whether the given value is of type Map
+ * @param value
+ * @returns {boolean}
+ */
+const isMap = ofType('Map');
 
 export default isMap;

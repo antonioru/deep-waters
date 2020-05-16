@@ -1,10 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
 /**
- * Takes a value and return true if it's of type number
+ * Evaluates whether the given value is of type number
  * @param value
  * @returns {boolean}
  */
-const isNumber = ofClass('Number');
+const isNumber = ofType('Number');
 
 export default isNumber;

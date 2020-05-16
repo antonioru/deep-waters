@@ -1,8 +1,12 @@
 import arrayOf from '../src/arrayOf';
+import every from '../src/every';
 
-// since this is just a shortcut to every we only need to test it is a function
 describe('arrayOf', () => {
   it('should be a function', () => {
     expect(arrayOf).to.be.a('function');
+  });
+
+  it('should be a semantic shortcut to every', () => {
+    expect(arrayOf).to.equal(every);
   });
 });

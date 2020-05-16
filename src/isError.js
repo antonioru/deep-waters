@@ -1,5 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
-const isError = ofClass('Error');
+/**
+ * Evaluates whether the given value is of type Error
+ * @param value
+ * @returns {boolean}
+ */
+const isError = ofType('Error');
 
 export default isError;

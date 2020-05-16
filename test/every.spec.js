@@ -1,37 +1,24 @@
 import every from '../src/every';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldCreateValidators from './utils/shouldCreateValidators';
 import isNumber from '../src/isNumber';
+import isString from '../src/isString';
+import or from '../src/or';
 
 describe('every', () => {
-  it('should be a function', () => {
-    expect(every).to.be.a('function');
+  shouldCreateValidators(every, (value) => value > 0, {
+    validParam: [1, 2, 3],
+    errorParam: [-3, -2 - 1],
   });
 
-  it('should return a new function', () => {
-    const everyItemIsNumber = every(isNumber);
+  shouldBeValidFor(every(isNumber), [[1, 2, 3, 4, 5, 6, 7], [0, -1, Number.MAX_SAFE_INTEGER]]);
+  shouldBeValidFor(every(isString), [['foo', 'bar', ''], [String('foo'), String('bar'), String('')]]);
+  shouldBeValidFor(every(or(isString, isNumber)), [['foo', 1, 2], [2, String('foo'), String('bar')]]);
+  shouldBeValidFor(every((v) => v > 10), [[11, 12, 13, 14], [15, 16, 17, 18]]);
 
-    expect(everyItemIsNumber).to.be.a('function');
-  });
-
-  it('should return true if (and only) every item of the given array is valid for the given validator', () => {
-    const everyItemIsNumber = every(isNumber);
-
-    expect(everyItemIsNumber([0, 1, 2, 3, 4, 4.5])).to.be.true;
-    expect(everyItemIsNumber(['string', 1, 2, 3, 4, 4.5])).to.be.false;
-  });
-
-  it('should return false for everything else', () => {
-    const everyItemIsNumber = every(isNumber);
-
-    expect(everyItemIsNumber('lorem ipsum')).to.be.false;
-    expect(everyItemIsNumber(false)).to.be.false;
-    expect(everyItemIsNumber(null)).to.be.false;
-    expect(everyItemIsNumber(undefined)).to.be.false;
-    expect(everyItemIsNumber({})).to.be.false;
-  });
-
-  it('should return false when an invalid validator is passed', () => {
-    const what = every(null);
-
-    expect(what('lorem ipsum')).to.be.false;
-  });
+  shouldBeInvalidFor(every(isNumber), [null, undefined, 10, 'foo', Symbol('f'), new Set([1, 2, 3])]);
+  shouldBeInvalidFor(every(isNumber), [[1, 2, 3, 'foo'], ['foo', 1, 2, null]]);
+  shouldBeInvalidFor(every(isString), [[1, 2, 3, 4], [{}, [], null]]);
+  shouldBeInvalidFor(every((v) => v > 10), [[1, 2, 3]]);
 });

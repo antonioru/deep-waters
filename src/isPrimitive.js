@@ -1,17 +1,16 @@
 import or from './or';
-import isBigInt from './isBigInt';
 import isString from './isString';
-import isFunction from './isFunction';
+import isBigInt from './isBigInt';
 import isBoolean from './isBoolean';
 import isNumber from './isNumber';
 import isSymbol from './isSymbol';
 import isUndefined from './isUndefined';
-import isNull from './isNull';
+import createValidator from './utils/createValidator';
 
 /**
  * Receives a value and reports whether it is a primitive of not
  * @type {function(*=): boolean}
  */
-const isPrimitive = or(isString, isFunction, isBoolean, isNumber, isBigInt, isSymbol, isNull, isUndefined);
+const isPrimitive = or(isString, isNumber, isBigInt, isBoolean, isUndefined, isSymbol);
 
-export default isPrimitive;
+export default createValidator(isPrimitive, 'The provided value is not a primitive');

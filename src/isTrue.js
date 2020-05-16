@@ -1,3 +1,5 @@
+import createValidator from './utils/createValidator';
+
 /**
  * Takes a value and returns true only if it is of type boolean and of value `true`
  * @param value
@@ -5,4 +7,4 @@
  */
 const isTrue = (value) => value === true;
 
-export default isTrue;
+export default createValidator(isTrue, 'The provided value is not true');

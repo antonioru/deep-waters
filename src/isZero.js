@@ -1,3 +1,5 @@
+import createValidator from './utils/createValidator';
+
 /**
  * Returns true if the given value is zero
  * @param value
@@ -5,4 +7,4 @@
  */
 const isZero = (value) => value === 0;
 
-export default isZero;
+export default createValidator(isZero, 'the provided value is not zero');

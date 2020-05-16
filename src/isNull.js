@@ -1,10 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
 /**
- * Checks if a given variable is null
+ * Evaluates whether the given value is null
  * @param value
  * @returns {boolean}
  */
-const isNull = ofClass('Null');
+const isNull = ofType('Null');
 
 export default isNull;

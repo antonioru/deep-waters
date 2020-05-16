@@ -1,32 +1,28 @@
 import between from '../src/between';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAHigherOrderFunction from './utils/shouldBeAHigherOrderFunction';
 
 describe('between', () => {
-  it('should be a function', () => {
-    expect(between).to.be.a('function');
+  shouldBeAHigherOrderFunction(between, 2, 4);
+
+  it('the created validator should return a response', () => {
+    const validator = between(2, 5);
+
+    expect(validator(3)).to.be.an('object').that.has.property('valid', true);
+    expect(validator(5)).to.be.an('object').that.has.property('errors');
   });
 
-  it('should return a new function', () => {
-    const result = between(5);
+  it('should allow to define a custom error message', () => {
+    const customErr = 'foo';
+    const validator = between(2, 3, customErr);
+    const result = validator(5);
 
-    expect(result).to.be.a('function');
+    expect(result.errors[0]).to.equals(customErr);
   });
 
-  it('should return true when the provided value is between than the defined ones', () => {
-    const between5And10 = between(5)(10);
+  shouldBeValidFor(between(2, 6), [3, 4, 5]);
+  shouldBeValidFor(between(-0.1, 100), Array.from({ length: 100 }).map((_, i) => (i / 10)));
 
-    expect(between5And10(6)).to.be.true;
-    expect(between5And10(5.3)).to.be.true;
-    expect(between5And10(0)).to.be.false;
-    expect(between5And10(-5)).to.be.false;
-  });
-
-  it('should return false when the provided value is not a valid number', () => {
-    const between5And10 = between(5)(10);
-
-    expect(between5And10(null)).to.be.false;
-    expect(between5And10(undefined)).to.be.false;
-    expect(between5And10([])).to.be.false;
-    expect(between5And10([1, 2, 3])).to.be.false;
-    expect(between5And10({})).to.be.false;
-  });
+  shouldBeInvalidFor(between(2, 6), [1, 7, 6.1, 1.9, undefined, null, new Set(), new Map()]);
 });

@@ -1,3 +1,4 @@
+import createValidator from './utils/createValidator';
 import or from './or';
 import isIPv4 from './isIPv4';
 import isIPv6 from './isIPv6';
@@ -9,4 +10,4 @@ import isIPv6 from './isIPv6';
  */
 const isIP = or(isIPv4, isIPv6);
 
-export default isIP;
+export default createValidator(isIP, 'The provided value is not a valid IP');

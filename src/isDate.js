@@ -1,5 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
-const isDate = ofClass('Date');
+/**
+ * Evaluates whether the given value is of type Date
+ * @param value
+ * @returns {boolean}
+ */
+const isDate = ofType('Date');
 
 export default isDate;

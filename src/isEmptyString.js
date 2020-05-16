@@ -1,3 +1,4 @@
+import createValidator from './utils/createValidator';
 import compose from './compose';
 import isString from './isString';
 
@@ -10,4 +11,5 @@ const isEmptyString = compose(
   (str) => str.trim() === '',
 );
 
-export default isEmptyString;
+
+export default createValidator(isEmptyString, 'The provided value is not an empty string');

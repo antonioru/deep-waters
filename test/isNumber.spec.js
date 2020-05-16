@@ -1,15 +1,11 @@
 import isNumber from '../src/isNumber';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isNumber', () => {
-  it('should be a function', () => {
-    expect(isNumber).to.be.a('function');
-  });
+  shouldBeAValidator(isNumber, Number.MAX_SAFE_INTEGER);
 
-  it('should evaluate if the given value is a number', () => {
-    expect(isNumber(null)).to.be.false;
-    expect(isNumber(undefined)).to.be.false;
-    expect(isNumber(0)).to.be.true;
-    expect(isNumber(1)).to.be.true;
-    expect(isNumber('value')).to.be.false;
-  });
+  shouldBeValidFor(isNumber, [1, 0, -1, Number.MAX_SAFE_INTEGER, Number.MIN_VALUE, Infinity]);
+  shouldBeInvalidFor(isNumber, ['', 'foo', undefined, new Map(), new Set()]);
 });

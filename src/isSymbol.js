@@ -1,10 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
 /**
- * Evaluates whether the given value is of type symbol
+ * Evaluates whether the given value is of type Symbol
  * @param value
  * @returns {boolean}
  */
-const isSymbol = ofClass('Symbol');
+const isSymbol = ofType('Symbol');
 
 export default isSymbol;

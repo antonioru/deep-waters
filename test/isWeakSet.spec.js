@@ -1,17 +1,11 @@
 import isWeakSet from '../src/isWeakSet';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isWeakSet', () => {
-  it('should be a function', () => {
-    expect(isWeakSet).to.be.a('function');
-  });
+  shouldBeAValidator(isWeakSet, new WeakSet());
 
-  it('should evaluate if the given value is of type WeakSet', () => {
-    expect(isWeakSet(new WeakSet())).to.be.true;
-
-    expect(isWeakSet(null)).to.be.false;
-    expect(isWeakSet(undefined)).to.be.false;
-    expect(isWeakSet(0)).to.be.false;
-    expect(isWeakSet(1)).to.be.false;
-    expect(isWeakSet('value')).to.be.false;
-  });
+  shouldBeValidFor(isWeakSet, [new WeakSet(), new WeakSet([])]);
+  shouldBeInvalidFor(isWeakSet, [1, 0, '', 'foo', undefined, null, {}, [], false, true, () => null]);
 });

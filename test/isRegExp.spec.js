@@ -1,18 +1,11 @@
 import isRegExp from '../src/isRegExp';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isRegExp', () => {
-  it('should be a function', () => {
-    expect(isRegExp).to.be.a('function');
-  });
+  shouldBeAValidator(isRegExp, new RegExp(/test/));
 
-  it('should evaluate if the given value is a regexp', () => {
-    expect(isRegExp(/^39$/)).to.be.true;
-    expect(isRegExp(new RegExp(/^39$/))).to.be.true;
-
-    expect(isRegExp(null)).to.be.false;
-    expect(isRegExp(undefined)).to.be.false;
-    expect(isRegExp(0)).to.be.false;
-    expect(isRegExp(1)).to.be.false;
-    expect(isRegExp('value')).to.be.false;
-  });
+  shouldBeValidFor(isRegExp, [new RegExp(/test/), /test/i]);
+  shouldBeInvalidFor(isRegExp, ['', 'foo', 0, 1, null, {}, [], undefined, new Map(), new Set()]);
 });

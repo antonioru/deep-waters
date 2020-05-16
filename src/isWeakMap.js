@@ -1,5 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
-const isWeakMap = ofClass('WeakMap');
+/**
+ * Evaluates whether the given value is of type WeakMap
+ * @param value
+ * @returns {boolean}
+ */
+const isWeakMap = ofType('WeakMap');
 
 export default isWeakMap;

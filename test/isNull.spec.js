@@ -1,15 +1,11 @@
 import isNull from '../src/isNull';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isNull', () => {
-  it('should be a function', () => {
-    expect(isNull).to.be.a('function');
-  });
+  shouldBeAValidator(isNull, null, false);
 
-  it('should evaluate if the given value is null', () => {
-    expect(isNull(null)).to.be.true;
-    expect(isNull(undefined)).to.be.false;
-    expect(isNull(0)).to.be.false;
-    expect(isNull('1')).to.be.false;
-    expect(isNull('value')).to.be.false;
-  });
+  shouldBeValidFor(isNull, [null]);
+  shouldBeInvalidFor(isNull, [1, 0, '', 'foo', undefined, new Map(), new Set()]);
 });

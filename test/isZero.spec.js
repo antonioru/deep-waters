@@ -1,16 +1,11 @@
 import isZero from '../src/isZero';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isZero', () => {
-  it('should be a function', () => {
-    expect(isZero).to.be.a('function');
-  });
+  shouldBeAValidator(isZero, 0);
 
-  it('should return true if (and only) the given value is zero', () => {
-    expect(isZero(0)).to.be.true;
-
-    expect(isZero(null)).to.be.false;
-    expect(isZero(undefined)).to.be.false;
-    expect(isZero('1')).to.be.false;
-    expect(isZero('value')).to.be.false;
-  });
+  shouldBeValidFor(isZero, [0]);
+  shouldBeInvalidFor(isZero, [1, Symbol('foo'), undefined, null, {}, [], true, false, new Map(), new Set()]);
 });

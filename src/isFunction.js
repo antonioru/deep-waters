@@ -1,4 +1,4 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
 /**
  * Returns true if the given value is of type function
@@ -7,6 +7,6 @@ import ofClass from './ofClass';
  * @param fn
  * @returns {boolean|boolean}
  */
-const isFunction = ofClass('Function');
+const isFunction = ofType('Function');
 
 export default isFunction;

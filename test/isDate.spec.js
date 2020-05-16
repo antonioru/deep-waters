@@ -1,17 +1,11 @@
 import isDate from '../src/isDate';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isDate', () => {
-  it('should be a function', () => {
-    expect(isDate).to.be.a('function');
-  });
+  shouldBeAValidator(isDate, new Date());
 
-  it('should evaluate if the given value is an instance of Date', () => {
-    expect(isDate(new Date())).to.be.true;
-
-    expect(isDate(null)).to.be.false;
-    expect(isDate(undefined)).to.be.false;
-    expect(isDate(0)).to.be.false;
-    expect(isDate(1)).to.be.false;
-    expect(isDate('value')).to.be.false;
-  });
+  shouldBeValidFor(isDate, [new Date()]);
+  shouldBeInvalidFor(isDate, [1, 0, '', 'foo', undefined, null, new Set(), new Map()]);
 });

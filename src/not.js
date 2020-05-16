@@ -1,8 +1,17 @@
+import isRespObject from './utils/isRespObject';
+import assertResponse from './utils/assertResponse';
+import sanitizeResp from './utils/sanitizeResp';
+
 /**
- * Takes a function and return a new function which will return the opposite of the given one
+ *
  * @param fn
- * @returns {function(*=): boolean}
+ * @returns {function(...[*]): boolean}
  */
-const not = (fn) => (value) => !fn(value);
+const not = (fn) => (...args) => {
+  const result = fn(...args);
+  assertResponse(result);
+
+  return isRespObject(result) ? sanitizeResp({ ...result, valid: !result.valid }) : !result;
+};
 
 export default not;

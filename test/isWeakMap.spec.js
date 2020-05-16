@@ -1,17 +1,11 @@
 import isWeakMap from '../src/isWeakMap';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isWeakMap', () => {
-  it('should be a function', () => {
-    expect(isWeakMap).to.be.a('function');
-  });
+  shouldBeAValidator(isWeakMap, new WeakMap());
 
-  it('should evaluate if the given value is of type WeakMap', () => {
-    expect(isWeakMap(new WeakMap())).to.be.true;
-
-    expect(isWeakMap(null)).to.be.false;
-    expect(isWeakMap(undefined)).to.be.false;
-    expect(isWeakMap(0)).to.be.false;
-    expect(isWeakMap(1)).to.be.false;
-    expect(isWeakMap('value')).to.be.false;
-  });
+  shouldBeValidFor(isWeakMap, [new WeakMap()]);
+  shouldBeInvalidFor(isWeakMap, [1, 0, '', 'foo', undefined, [], {}, false, true, null, new Map(), new Set()]);
 });

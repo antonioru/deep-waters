@@ -1,23 +1,16 @@
 import not from '../src/not';
+import shouldBeAHigherOrderFunction from './utils/shouldBeAHigherOrderFunction';
 
 describe('not', () => {
-  it('should be a function', () => {
-    expect(not).to.be.a('function');
-  });
+  shouldBeAHigherOrderFunction(not, () => true);
 
-  it('should return a new function', () => {
-    const result = not(() => true);
+  it('should return the opposite of the given function', () => {
+    const validator1 = () => true;
+    const validator2 = () => ({ valid: false, errors: ['foo'] });
+    const opposite1 = not(validator1);
+    const opposite2 = not(validator2);
 
-    expect(result).to.be.a('function');
-  });
-
-  it('the returned function should return the opposite of what its first parameter returns', () => {
-    const stubTrue = () => true;
-    const stubFalse = () => false;
-    const isNotValid = not(stubTrue);
-    const isValid = not(stubFalse);
-
-    expect(isNotValid()).to.be.false;
-    expect(isValid()).to.be.true;
+    expect(opposite1()).to.be.false;
+    expect(opposite2()).to.deep.equal({ valid: true });
   });
 });

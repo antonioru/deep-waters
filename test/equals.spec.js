@@ -1,99 +1,61 @@
 import equals from '../src/equals';
+import shouldCreateValidators from './utils/shouldCreateValidators';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+
+class Mock {
+  constructor(n) {
+    this.value = n;
+  }
+
+  toString() {
+    return `${this.value}`;
+  }
+}
 
 describe('equals', () => {
-  it('should be a function', () => {
-    expect(equals).to.be.a('function');
+  shouldCreateValidators(equals, 'foo', {
+    validParam: 'foo',
+    errorParam: -1,
   });
 
-  it('should return a new function', () => {
-    const result = equals('prop');
+  const date = new Date();
+  shouldBeValidFor(equals(date), [date]);
+  shouldBeValidFor(equals('foo'), ['foo']);
+  shouldBeValidFor(equals(1), [1]);
+  shouldBeValidFor(equals({}), [{}]);
+  shouldBeValidFor(equals([]), [[]]);
+  shouldBeValidFor(equals([1, 2, 3, {}]), [[1, 2, 3, {}]]);
+  shouldBeValidFor(equals(Number.NaN), [Number.NaN]);
+  shouldBeValidFor(equals({ prop: 1 }), [{ prop: 1 }]);
+  shouldBeValidFor(equals({ prop: 1, deep: { deep: { prop: 2 } } }), [{ prop: 1, deep: { deep: { prop: 2 } } }]);
+  shouldBeValidFor(equals(new Set([1, 2, 3])), [new Set([1, 2, 3])]);
+  shouldBeValidFor(equals(new Set()), [new Set()]);
+  shouldBeValidFor(equals(new Map([['foo', 1]])), [new Map([['foo', 1]])]);
+  shouldBeValidFor(equals(null), [null]);
+  shouldBeValidFor(equals(undefined), [undefined]);
+  shouldBeValidFor(equals(/test/), [/test/, new RegExp(/test/)]);
+  shouldBeValidFor(equals(new Mock(2)), [new Mock(2)]);
 
-    expect(result).to.be.a('function');
-  });
-
-
-  it('should equal primitive values', () => {
-    const isHello = equals('hello');
-
-    expect(isHello('hello')).to.be.true;
-    expect(isHello('lorem')).to.be.false;
-    expect(isHello(undefined)).to.be.false;
-    expect(isHello(10)).to.be.false;
-    expect(isHello(null)).to.be.false;
-
-    const is10 = equals(10);
-
-    expect(is10(10)).to.be.true;
-
-    const fn = () => null;
-    const isFn = equals(fn);
-
-    expect(isFn(fn)).to.be.true;
-  });
-
-  it('should equal dates', () => {
-    const date = new Date();
-    const isDate = equals(date);
-
-    expect(isDate(date)).to.be.true;
-  });
-
-  it('should equal objects', () => {
-    const fn = () => null;
-
-    const isObj = equals({
-      prop: 1,
-      prop2: 2,
-      propStr: 'hello',
-      prop3: { nested: { object: true, omg: { deep: { prop: 1, prop2: 2 } } } },
-      propFn: fn,
-      arr: [1, 2, 3, 4, 5, 6, { prop: 1 }],
-    });
-
-    expect(isObj({
-      prop: 1,
-      prop2: 2,
-      propStr: 'hello',
-      prop3: { nested: { object: true, omg: { deep: { prop: 1, prop2: 2 } } } },
-      propFn: fn,
-      arr: [1, 2, 3, 4, 5, 6, { prop: 1 }],
-    })).to.be.true;
-  });
-
-  it('should equal arrays', () => {
-    const isArr = equals([1, 2, 3, 4, 'hello', { prop: 1 }]);
-
-    expect(isArr([1, 2, 3, 4, 'hello', { prop: 1 }])).to.be.true;
-  });
-
-
-  it('should return false for non equal values', () => {
-    const isArr = equals([1, 2, 3, 4, 'hello', { prop: 1 }]);
-
-    expect(isArr(undefined)).to.be.false;
-    expect(isArr(null)).to.be.false;
-    expect(isArr(false)).to.be.false;
-    expect(isArr('Hello')).to.be.false;
-    expect(isArr(10)).to.be.false;
-
-    const isObj = equals({
-      prop: 1,
-      prop2: 2,
-      propStr: 'hello',
-      prop3: { nested: { object: true, omg: { deep: { prop: 1, prop2: 2 } } } },
-      arr: [1, 2, 3, 4, 5, 6, { prop: 1 }],
-    });
-
-    expect(isObj({})).to.be.false;
-    expect(isObj(undefined)).to.be.false;
-    expect(isObj(null)).to.be.false;
-    expect(isObj(false)).to.be.false;
-    expect(isObj('Hello')).to.be.false;
-    expect(isObj(10)).to.be.false;
-
-    const isFn = equals(() => null);
-
-    expect(isFn({ prop: 1 })).to.be.false;
-    expect(isFn(() => 10)).to.be.false;
-  });
+  shouldBeInvalidFor(equals({ prop: 1 }), [{ prop: 2 }]);
+  shouldBeInvalidFor(equals({ prop: 1, b: 1 }), [{ prop: 2 }]);
+  shouldBeInvalidFor(equals({ prop: 1, bar: 1 }), [{ foo: 'bar' }]);
+  shouldBeInvalidFor(equals({ prop: 1 }), [{ foo: 1 }]);
+  shouldBeInvalidFor(equals({}), [{ foo: 'bar' }]);
+  shouldBeInvalidFor(equals([1, 2, 3]), [[1, 2, 2]]);
+  shouldBeInvalidFor(equals([1]), [[1, 2, 3]]);
+  shouldBeInvalidFor(equals(new Mock(4)), [new Mock(2)]);
+  shouldBeInvalidFor(equals(/test/), [/foo/]);
+  shouldBeInvalidFor(equals(new Set([1, 2])), [new Set([1, 2, 3])]);
+  shouldBeInvalidFor(equals(new Set([1, 2, 3])), [new Set([1, 2, 1])]);
+  shouldBeInvalidFor(equals(new Set([{}])), [new Set([{ prop: 1 }])]);
+  shouldBeInvalidFor(equals(new Set()), [new Set([1, 2, 3])]);
+  shouldBeInvalidFor(equals(new Map([['foo', 1], ['bar', 2]])), [new Map([['foo', 1]])]);
+  shouldBeInvalidFor(equals(new Map([['foo', 1], ['bar', 2]])), [new Map([['foo', 2], ['bar', 2]])]);
+  shouldBeInvalidFor(equals(new Map([['foo', 1]])), [new Map([['bar', 2]])]);
+  shouldBeInvalidFor(equals(date), [new Date('2020-06-12')]);
+  shouldBeInvalidFor(equals({}), [1, 0, undefined, null, new Set(), new Map()]);
+  shouldBeInvalidFor(equals(1), ['1', 'foo', '', undefined, null, new Set(), new Map()]);
+  shouldBeInvalidFor(equals([]), ['1', 'foo', '', undefined, null, 1, 0, new Map()]);
+  shouldBeInvalidFor(equals('foo'), ['1', '', undefined, null, 1, 0, new Map()]);
 });

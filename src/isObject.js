@@ -1,9 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
 /**
- * Returns true if (and only) the given value is a valid object
- * @type {function(*=): boolean}
+ * Evaluates whether the given value is of type object
+ * @param value
+ * @returns {boolean}
  */
-const isObject = ofClass('Object');
+const isObject = ofType('Object');
 
 export default isObject;

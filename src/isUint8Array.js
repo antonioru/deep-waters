@@ -1,5 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
-const isUint8Array = ofClass('Uint8Array');
+/**
+ * Evaluates whether the given value is of type Uint8Array
+ * @param value
+ * @returns {boolean}
+ */
+const isUint8Array = ofType('Uint8Array');
 
 export default isUint8Array;

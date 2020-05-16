@@ -1,16 +1,11 @@
 import isUndefined from '../src/isUndefined';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isUndefined', () => {
-  it('should be a function', () => {
-    expect(isUndefined).to.be.a('function');
-  });
+  shouldBeAValidator(isUndefined, undefined, false);
 
-  it('should return true if (and only) the given value is undefined', () => {
-    expect(isUndefined(undefined)).to.be.true;
-
-    expect(isUndefined(null)).to.be.false;
-    expect(isUndefined(0)).to.be.false;
-    expect(isUndefined('1')).to.be.false;
-    expect(isUndefined('value')).to.be.false;
-  });
+  shouldBeValidFor(isUndefined, [undefined]);
+  shouldBeInvalidFor(isUndefined, [1, 0, '', 'foo', null, [], {}, Symbol('foo'), () => null, new Map(), new Set()]);
 });

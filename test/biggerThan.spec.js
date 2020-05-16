@@ -1,32 +1,21 @@
 import biggerThan from '../src/biggerThan';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
+import shouldBeAHigherOrderFunction from './utils/shouldBeAHigherOrderFunction';
 
 describe('biggerThan', () => {
-  it('should be a function', () => {
-    expect(biggerThan).to.be.a('function');
-  });
+  shouldBeAHigherOrderFunction(biggerThan);
+  shouldBeAValidator(biggerThan(5), 7);
 
-  it('should return a new function', () => {
-    const result = biggerThan(5);
+  shouldBeValidFor(biggerThan(10), [11, 12, 13, Number.MAX_SAFE_INTEGER, Infinity]);
+  shouldBeInvalidFor(biggerThan(10), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
-    expect(result).to.be.a('function');
-  });
+  shouldBeValidFor(biggerThan(0), [1, 2, 3, 4, 5, 6, 7]);
+  shouldBeInvalidFor(biggerThan(0), [-1, -2, -3, -4, -5, -6, -7, -8, -9, Number.MIN_SAFE_INTEGER]);
 
-  it('should return true when the provided value is bigger than the defined one', () => {
-    const biggerThan5 = biggerThan(5);
+  shouldBeValidFor(biggerThan(-10), [-9, 0, 10]);
+  shouldBeInvalidFor(biggerThan(-10), [-11, -12, -13]);
 
-    expect(biggerThan5(6)).to.be.true;
-    expect(biggerThan5(5)).to.be.false;
-    expect(biggerThan5(0)).to.be.false;
-    expect(biggerThan5(-5)).to.be.false;
-  });
-
-  it('should return false when the provided value is not a valid number', () => {
-    const biggerThan5 = biggerThan(5);
-
-    expect(biggerThan5(null)).to.be.false;
-    expect(biggerThan5(undefined)).to.be.false;
-    expect(biggerThan5([])).to.be.false;
-    expect(biggerThan5([1, 2, 3])).to.be.false;
-    expect(biggerThan5({})).to.be.false;
-  });
+  shouldBeInvalidFor(biggerThan(1), [0, [], {}, Symbol('foo'), 'foo', undefined, null, new Map(), new Set()]);
 });

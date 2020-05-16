@@ -1,5 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
-const isSet = ofClass('Set');
+/**
+ * Evaluates whether the given value is of type Set
+ * @param value
+ * @returns {boolean}
+ */
+const isSet = ofType('Set');
 
 export default isSet;

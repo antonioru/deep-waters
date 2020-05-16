@@ -1,15 +1,11 @@
 import isString from '../src/isString';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isString', () => {
-  it('should be a function', () => {
-    expect(isString).to.be.a('function');
-  });
+  shouldBeAValidator(isString, 'foo');
 
-  it('should evaluate if the given value is a string', () => {
-    expect(isString(null)).to.be.false;
-    expect(isString(undefined)).to.be.false;
-    expect(isString(0)).to.be.false;
-    expect(isString('1')).to.be.true;
-    expect(isString('value')).to.be.true;
-  });
+  shouldBeValidFor(isString, ['foo', 'bar', '', '1', '0']);
+  shouldBeInvalidFor(isString, [1, 0, undefined, null, {}, [], true, false, new Map(), new Set(), Symbol('foo')]);
 });

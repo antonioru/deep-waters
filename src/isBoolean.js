@@ -1,10 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
 /**
  * returns true if the given value is a valid boolean
  * @param value
  * @returns {boolean}
  */
-const isBoolean = ofClass('Boolean');
+const isBoolean = ofType('Boolean');
 
 export default isBoolean;

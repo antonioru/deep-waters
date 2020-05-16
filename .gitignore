@@ -229,3 +229,4 @@ GitHub.sublime-settings
 .idea/
 
 dist/
+src/index.js

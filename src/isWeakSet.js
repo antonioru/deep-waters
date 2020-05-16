@@ -1,5 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
-const isWeakSet = ofClass('WeakSet');
+/**
+ * Evaluates whether the given value is of type WeakSet
+ * @param value
+ * @returns {boolean}
+ */
+const isWeakSet = ofType('WeakSet');
 
 export default isWeakSet;

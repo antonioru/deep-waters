@@ -1,3 +1,4 @@
+import createValidator from './utils/createValidator';
 import not from './not';
 import isFalsy from './isFalsy';
 
@@ -8,4 +9,4 @@ import isFalsy from './isFalsy';
  */
 const isTruthy = not(isFalsy);
 
-export default isTruthy;
+export default createValidator(isTruthy, 'The provided value is not truthy');

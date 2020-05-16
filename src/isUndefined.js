@@ -1,10 +1,10 @@
-import ofClass from './ofClass';
+import ofType from './ofType';
 
 /**
- * Takes a value and returns true if it's undefined
+ * Evaluates whether the given value is undefined
  * @param value
  * @returns {boolean}
  */
-const isUndefined = ofClass('Undefined');
+const isUndefined = ofType('Undefined');
 
 export default isUndefined;

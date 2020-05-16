@@ -1,29 +1,11 @@
 import isEmptyString from '../src/isEmptyString';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isEmptyString', () => {
-  it('should be a function', () => {
-    expect(isEmptyString).to.be.a('function');
-  });
+  shouldBeAValidator(isEmptyString, '');
 
-  it('should return true if the given value is an empty string', () => {
-    expect(isEmptyString('')).to.be.true;
-    expect(isEmptyString(' ')).to.be.true;
-    expect(isEmptyString('      ')).to.be.true;
-  });
-
-  it('should return false for non empty strings', () => {
-    expect(isEmptyString('not empty')).to.be.false;
-  });
-
-  it('should return false for everything else', () => {
-    expect(isEmptyString(undefined)).to.be.false;
-    expect(isEmptyString(null)).to.be.false;
-    expect(isEmptyString({ prop: false })).to.be.false;
-    expect(isEmptyString({})).to.be.false;
-    expect(isEmptyString([])).to.be.false;
-    expect(isEmptyString(123)).to.be.false;
-    expect(isEmptyString(0)).to.be.false;
-    expect(isEmptyString(false)).to.be.false;
-    expect(isEmptyString(true)).to.be.false;
-  });
+  shouldBeValidFor(isEmptyString, ['', ' ', '  ']);
+  shouldBeInvalidFor(isEmptyString, [1, 0, [], {}, Symbol('foo'), 'foo', undefined, null, new Map(), new Set()]);
 });

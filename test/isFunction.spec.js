@@ -1,17 +1,16 @@
 import isFunction from '../src/isFunction';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isFunction', () => {
-  it('should be a function', () => {
-    expect(isFunction).to.be.a('function');
-  });
+  const fn = () => null;
+  const fn2 = function Fn2() {
+    return null;
+  };
 
-  it('should evaluate if the given value is a function', () => {
-    const noop = () => null;
+  shouldBeAValidator(isFunction, fn);
 
-    expect(isFunction(null)).to.be.false;
-    expect(isFunction(undefined)).to.be.false;
-    expect(isFunction(noop)).to.be.true;
-    expect(isFunction(1)).to.be.false;
-    expect(isFunction('value')).to.be.false;
-  });
+  shouldBeValidFor(isFunction, [fn, fn2]);
+  shouldBeInvalidFor(isFunction, [1, 0, '', 'foo', undefined, null, new Set(), new Map()]);
 });

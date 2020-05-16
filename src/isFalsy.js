@@ -1,3 +1,4 @@
+import createValidator from './utils/createValidator';
 import or from './or';
 import isFalse from './isFalse';
 import isZero from './isZero';
@@ -11,4 +12,4 @@ import isEmptyString from './isEmptyString';
  */
 const isFalsy = or(isFalse, isZero, isEmptyString, isNull, isUndefined, (value) => !value);
 
-export default isFalsy;
+export default createValidator(isFalsy, 'The provided value is not falsy');

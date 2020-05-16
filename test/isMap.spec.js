@@ -1,17 +1,11 @@
 import isMap from '../src/isMap';
+import shouldBeValidFor from './utils/shouldBeValidFor';
+import shouldBeInvalidFor from './utils/shouldBeInvalidFor';
+import shouldBeAValidator from './utils/shouldBeAValidator';
 
 describe('isMap', () => {
-  it('should be a function', () => {
-    expect(isMap).to.be.a('function');
-  });
+  shouldBeAValidator(isMap, new Map());
 
-  it('should evaluate if the given value is of type Map', () => {
-    expect(isMap(new Map())).to.be.true;
-
-    expect(isMap(null)).to.be.false;
-    expect(isMap(undefined)).to.be.false;
-    expect(isMap(0)).to.be.false;
-    expect(isMap(1)).to.be.false;
-    expect(isMap('value')).to.be.false;
-  });
+  shouldBeValidFor(isMap, [new Map(), new Map([['foo', 'bar']]), new Map([[new Set([1, 2, 3]), 'foo']])]);
+  shouldBeInvalidFor(isMap, [1, 0, '', 'foo', undefined, null, new Set()]);
 });

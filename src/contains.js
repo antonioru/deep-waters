@@ -5,7 +5,7 @@ import not from './not';
 import isString from './isString';
 import isPrimitive from './isPrimitive';
 import equals from './equals';
-import stubFalse from './_utils/stubFalse';
+import stubFalse from './_internals/stubFalse';
 
 
 const arrayContains = (value) => (array) => {

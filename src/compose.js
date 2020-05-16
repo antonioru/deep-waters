@@ -4,6 +4,15 @@
  * @param validators
  * @returns {function(*=): boolean}
  */
-const compose = (...validators) => (value) => Array.from(new Set(validators)).every((validator) => validator(value));
+const compose = (...validators) => (value) => {
+  let response = Response.of({ valid: true });
+
+  validators.forEach((fn) => {
+    response = response.merge(() => fn(value));
+  });
+
+  return response.emit();
+};
+
 
 export default compose;

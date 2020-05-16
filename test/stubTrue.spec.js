@@ -1,4 +1,4 @@
-import stubTrue from '../src/_utils/stubTrue';
+import stubTrue from '../src/_internals/stubTrue';
 
 describe('stubTrue', () => {
   it('should be a function', () => expect(stubTrue).to.be.a('function'));

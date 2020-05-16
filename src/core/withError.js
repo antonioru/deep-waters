@@ -1,17 +1,17 @@
-const INTERNAL_NAME_KEY = Symbol('__dw_internal_name');
+import { INTERNAL_NAME_KEY } from '../_internals/_constants';
 
-const prototypeFrom = (fn, result) => {
+const makePrototypeFrom = (fn, name, result) => {
   const emptyObj = Object.create(null);
 
-  emptyObj[INTERNAL_NAME_KEY] = result[INTERNAL_NAME_KEY] || fn.name || 'anonymous';
+  emptyObj[INTERNAL_NAME_KEY] = result[INTERNAL_NAME_KEY] || name || 'anonymous';
 
   return emptyObj;
 };
 
 
-const withError = (fn, error) => (...args) => {
+const withError = (fn, error, name = fn.name) => (...args) => {
   const result = fn(...args);
-  const response = Object.create(prototypeFrom(fn, result));
+  const response = Object.create(makePrototypeFrom(fn, name, result));
 
   response.valid = result.valid !== undefined && typeof result.valid === 'boolean' ? result.valid : result;
 

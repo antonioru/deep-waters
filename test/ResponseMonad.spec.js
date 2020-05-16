@@ -1,4 +1,4 @@
-import Response from '../src/_utils/ResponseMonad';
+import Response from '../src/core/ResponseMonad';
 
 describe('ResponseMonad', () => {
   const responseMock = ({ valid: false, errors: ['Err1'] });
